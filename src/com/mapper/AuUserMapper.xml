@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.AuUserMapper">
+	 <resultMap type="com.model.AuUser" id="empresultMap">
+    <id property="Id" column="id"></id>
+    <result property="logincode" column="loginCode"/>
+    <result property="password" column="password"/>
+    <result property="password2" column="password2"/>
+	<result property="username" column="username"/>
+    <result property="sex" column="sex"/>
+    <result property="birthday" column="birthday"/>
+    <result property="cardtype" column="cardtype"/>
+    <result property="cardtypename" column="cardtypename"/>
+    <result property="idcard" column="idcard"/>
+    <result property="country" column="country"/>
+    <result property="mobile" column="mobile"/>
+    <result property="email" column="email"/>
+    <result property="useraddress" column="useraddress"/>
+    <result property="postcode" column="postcode"/>
+    <result property="createtime" column="createtime"/>
+    <result property="referid" column="referid"/>
+    <result property="refercode" column="refercode"/>
+    <result property="roleid" column="roleid"/>
+    <result property="rolename" column="rolename"/>
+    <result property="usertype" column="usertype"/>
+    <result property="usertypename" column="usertypename"/>
+    <result property="isstart" column="isstart"/>
+    <result property="lastupdatetime" column="lastupdatetime"/>
+    <result property="lastlogintime" column="lastlogintime"/>
+    <result property="bankaccount" column="bankaccount"/>
+    <result property="bankname" column="bankname"/>
+    <result property="accountholder" column="accountholder"/>
+    <result property="idcardpicpath" column="idcardpicpath"/>
+    <result property="bankpicpath" column="bankpicpath"/>
+    </resultMap>
+    <select id="selectall"  resultMap="empresultMap">
+        select * from  au_user
+    </select>
+    <select id="login" resultType="int" parameterType="java.util.Map">
+    select count(*) from au_user where LOGINCODE=#{logincode} and PASSWORD=#{password}
+    </select>
+</mapper>
